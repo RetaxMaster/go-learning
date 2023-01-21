@@ -20,7 +20,14 @@ func main() {
 	fmt.Println(valores)
 	fmt.Println(valores[0] + valores[1])
 
-	operador1, _ := strconv.Atoi(valores[0])
+	operador1, err1 := strconv.Atoi(valores[0])
+
+	if err1 != nil {
+		fmt.Println(err1)
+	} else {
+		fmt.Println(operador1)
+	}
+
 	operador2, _ := strconv.Atoi(valores[1])
 
 	fmt.Println(operador1 + operador2)
