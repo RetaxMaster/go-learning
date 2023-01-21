@@ -1,6 +1,8 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type taskList struct {
 	tasks []*task
@@ -77,5 +79,32 @@ func main() {
 	lista.tasks[0].marcarCompleto()
 	fmt.Println("Tareas completadas")
 	lista.imprimirListaCompletados()
+
+	mapaTareas := make(map[string]*taskList)
+	mapaTareas["Carlos"] = lista
+
+	t4 := &task{
+		nombre:      "Completar mi curso de Java",
+		descripcion: "Completar mi curso de Java de Platzi en esta semana",
+	}
+
+	t5 := &task{
+		nombre:      "Completar mi curso de C#",
+		descripcion: "Completar mi curso de C# de Platzi en esta semana",
+	}
+
+	lista2 := &taskList{
+		tasks: []*task{
+			t4, t5,
+		},
+	}
+
+	mapaTareas["Nestor"] = lista2
+
+	fmt.Println("Tareas de Carlos")
+	mapaTareas["Carlos"].imprimirLista()
+
+	fmt.Println("Tareas de Nestor")
+	mapaTareas["Nestor"].imprimirLista()
 
 }
